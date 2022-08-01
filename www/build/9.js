@@ -1,6 +1,6 @@
 webpackJsonp([9],{
 
-/***/ 860:
+/***/ 859:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminPageModule", function() { return AdminPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin__ = __webpack_require__(884);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__admin__ = __webpack_require__(883);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var AdminPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 884:
+/***/ 883:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -148,7 +148,7 @@ var AdminPage = /** @class */ (function () {
     };
     AdminPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-admin',template:/*ion-inline-start:"C:\Users\HoangN\Downloads\vietnamargo_final\vietnamargo\src\pages\admin\admin.html"*/'<ion-header no-border>\n  <ion-item no-lines>\n    <img loading="lazy" class="sidemenuIcon" item-start src="imgs/sidemenu.png" *ngIf="global.isLogin" (click)="sideMenuTrigger()" />\n    TRANG QUẢN TRỊ <button item-end ion-button *ngIf="global.isLogin" color="danger"\n      (click)="fbProvider.logout()">Logout</button>\n  </ion-item>\n</ion-header>\n\n<ion-content padding class="adminBG">\n  <div *ngIf="global.isLogin" class="settingsHome">\n    <ion-grid>\n      <ion-row>\n        <ion-col (click)="openPage(item.id)" text-center *ngFor="let item of global.listOfSettings">\n          <img loading="lazy" [src]="item.icon" />\n          <h4>{{item.name}}</h4>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n  <div *ngIf="!global.isLogin" class="loginForm">\n    <ion-item (click)="fbProvider.login()" no-lines text-center text-wrap>\n      <img loading="lazy" style=\'vertical-align:middle; width:30px; margin-right: 15px\' src=\'imgs/google.png\'>\n      <div style=\'vertical-align:middle; display:inline;\'>\n        Đăng nhập với Google</div>\n    </ion-item>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\HoangN\Downloads\vietnamargo_final\vietnamargo\src\pages\admin\admin.html"*/
+            selector: 'page-admin',template:/*ion-inline-start:"C:\Users\HoangN\Desktop\ionic\vietnamargo\src\pages\admin\admin.html"*/'<ion-header no-border>\n  <ion-item no-lines>\n    <img loading="lazy" class="sidemenuIcon" item-start src="imgs/sidemenu.png" *ngIf="global.isLogin" (click)="sideMenuTrigger()" />\n    TRANG QUẢN TRỊ <button item-end ion-button *ngIf="global.isLogin" color="danger"\n      (click)="fbProvider.logout()">Logout</button>\n  </ion-item>\n</ion-header>\n\n<ion-content padding class="adminBG">\n  <div *ngIf="global.isLogin" class="settingsHome">\n    <ion-grid>\n      <ion-row>\n        <ion-col (click)="openPage(item.id)" text-center *ngFor="let item of global.listOfSettings">\n          <img loading="lazy" [src]="item.icon" />\n          <h4>{{item.name}}</h4>\n        </ion-col>\n      </ion-row>\n    </ion-grid>\n  </div>\n  <div *ngIf="!global.isLogin" class="loginForm">\n    <ion-item (click)="fbProvider.login()" no-lines text-center text-wrap>\n      <img loading="lazy" style=\'vertical-align:middle; width:30px; margin-right: 15px\' src=\'imgs/google.png\'>\n      <div style=\'vertical-align:middle; display:inline;\'>\n        Đăng nhập với Google</div>\n    </ion-item>\n  </div>\n</ion-content>'/*ion-inline-end:"C:\Users\HoangN\Desktop\ionic\vietnamargo\src\pages\admin\admin.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_3__providers_globalhero_globalhero__["a" /* GlobalheroProvider */], __WEBPACK_IMPORTED_MODULE_2__providers_firebase_services_firebase_services__["a" /* FirebaseServicesProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], AdminPage);

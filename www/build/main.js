@@ -284,11 +284,11 @@ var map = {
 		10
 	],
 	"../pages/admin/admin.module": [
-		860,
+		859,
 		9
 	],
 	"../pages/contact-us-popover/contact-us-popover.module": [
-		859,
+		860,
 		8
 	],
 	"../pages/home-about-us/home-about-us.module": [
@@ -304,11 +304,11 @@ var map = {
 		3
 	],
 	"../pages/home-product-home/home-product-home.module": [
-		865,
+		864,
 		2
 	],
 	"../pages/home-product-news-list/home-product-news-list.module": [
-		864,
+		865,
 		0
 	],
 	"../pages/home-product-process/home-product-process.module": [
@@ -1974,13 +1974,13 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/admin-product-detail/admin-product-detail.module#AdminProductDetailPageModule', name: 'AdminProductDetailPage', segment: 'admin/products/productedit', priority: 'low', defaultHistory: ['AdminPage'] },
                         { loadChildren: '../pages/admin-supplier-detail/admin-supplier-detail.module#AdminSupplierDetailPageModule', name: 'AdminSupplierDetailPage', segment: 'admin/supplier/supplieredit', priority: 'low', defaultHistory: ['AdminPage'] },
                         { loadChildren: '../pages/admin-supplier/admin-supplier.module#AdminSupplierPageModule', name: 'AdminSupplierPage', segment: 'admin/supplier', priority: 'low', defaultHistory: ['AdminPage'] },
-                        { loadChildren: '../pages/contact-us-popover/contact-us-popover.module#ContactUsPopoverPageModule', name: 'ContactUsPopoverPage', segment: 'contact-us-popover', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin/admin.module#AdminPageModule', name: 'AdminPage', segment: 'admin', priority: 'low', defaultHistory: [] },
+                        { loadChildren: '../pages/contact-us-popover/contact-us-popover.module#ContactUsPopoverPageModule', name: 'ContactUsPopoverPage', segment: 'contact-us-popover', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/home-about-us/home-about-us.module#HomeAboutUsPageModule', name: 'HomeAboutUsPage', segment: 'home/:site/aboutus', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-contact-us/home-contact-us.module#HomeContactUsPageModule', name: 'HomeContactUsPage', segment: 'home/:site/contact', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-product-detail/home-product-detail.module#HomeProductDetailPageModule', name: 'HomeProductDetailPage', segment: 'home/:site/:groupName', priority: 'low', defaultHistory: ['HomePage'] },
-                        { loadChildren: '../pages/home-product-news-list/home-product-news-list.module#HomeProductNewsListPageModule', name: 'HomeProductNewsListPage', segment: 'home/:site/news', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-product-home/home-product-home.module#HomeProductHomePageModule', name: 'HomeProductHomePage', segment: 'home/:site', priority: 'low', defaultHistory: ['HomePage'] },
+                        { loadChildren: '../pages/home-product-news-list/home-product-news-list.module#HomeProductNewsListPageModule', name: 'HomeProductNewsListPage', segment: 'home/:site/news', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-product-process/home-product-process.module#HomeProductProcessPageModule', name: 'HomeProductProcessPage', segment: 'home/:site/process', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news-detal-popover/news-detail-popover.module#NewsDetailPopoverPageModule', name: 'NewsDetailPopoverPage', segment: 'news-detail-popover', priority: 'low', defaultHistory: [] },
@@ -2145,7 +2145,7 @@ var MyApp = /** @class */ (function () {
         __metadata("design:type", __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["h" /* Nav */])
     ], MyApp.prototype, "nav", void 0);
     MyApp = __decorate([
-        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\HoangN\Downloads\vietnamargo_final\vietnamargo\src\app\app.html"*/'<ion-menu [content]="mycontent" *ngIf="global.isLogin">\n    <ion-content>\n      <ion-list class="listOfMenuItems">\n        <ion-item no-lines (click)="openPage(\'home\')">\n            <img loading="lazy" item-start src="imgs/home.png"/>\n            Trang chủ\n        </ion-item>\n        <ion-item *ngFor="let item of global.listOfSettings" no-lines (click)="openPage(item.id)">\n            <img loading="lazy" item-start [src]="item.icon"/>\n            <h6>{{item.name}}</h6>\n        </ion-item>         \n    </ion-list>\n    </ion-content>\n  </ion-menu>\n  \n  <ion-nav #mycontent [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\Users\HoangN\Downloads\vietnamargo_final\vietnamargo\src\app\app.html"*/
+        Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({template:/*ion-inline-start:"C:\Users\HoangN\Desktop\ionic\vietnamargo\src\app\app.html"*/'<ion-menu [content]="mycontent" *ngIf="global.isLogin">\n    <ion-content>\n      <ion-list class="listOfMenuItems">\n        <ion-item no-lines (click)="openPage(\'home\')">\n            <img loading="lazy" item-start src="imgs/home.png"/>\n            Trang chủ\n        </ion-item>\n        <ion-item *ngFor="let item of global.listOfSettings" no-lines (click)="openPage(item.id)">\n            <img loading="lazy" item-start [src]="item.icon"/>\n            <h6>{{item.name}}</h6>\n        </ion-item>         \n    </ion-list>\n    </ion-content>\n  </ion-menu>\n  \n  <ion-nav #mycontent [root]="rootPage"></ion-nav>'/*ion-inline-end:"C:\Users\HoangN\Desktop\ionic\vietnamargo\src\app\app.html"*/
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_1_ionic_angular__["g" /* MenuController */], __WEBPACK_IMPORTED_MODULE_5__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_4__providers_globalhero_globalhero__["a" /* GlobalheroProvider */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["k" /* Platform */], __WEBPACK_IMPORTED_MODULE_2__ionic_native_status_bar__["a" /* StatusBar */], __WEBPACK_IMPORTED_MODULE_3__ionic_native_splash_screen__["a" /* SplashScreen */]])
     ], MyApp);

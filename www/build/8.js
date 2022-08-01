@@ -1,6 +1,6 @@
 webpackJsonp([8],{
 
-/***/ 859:
+/***/ 860:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -8,7 +8,7 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "ContactUsPopoverPageModule", function() { return ContactUsPopoverPageModule; });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__angular_core__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_ionic_angular__ = __webpack_require__(121);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_us_popover__ = __webpack_require__(883);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__contact_us_popover__ = __webpack_require__(884);
 var __decorate = (this && this.__decorate) || function (decorators, target, key, desc) {
     var c = arguments.length, r = c < 3 ? target : desc === null ? desc = Object.getOwnPropertyDescriptor(target, key) : desc, d;
     if (typeof Reflect === "object" && typeof Reflect.decorate === "function") r = Reflect.decorate(decorators, target, key, desc);
@@ -38,7 +38,7 @@ var ContactUsPopoverPageModule = /** @class */ (function () {
 
 /***/ }),
 
-/***/ 883:
+/***/ 884:
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -131,7 +131,7 @@ var ContactUsPopoverPage = /** @class */ (function () {
     ], ContactUsPopoverPage.prototype, "contactUsContentInput", void 0);
     ContactUsPopoverPage = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_0__angular_core__["Component"])({
-            selector: 'page-contact-us-popover',template:/*ion-inline-start:"C:\Users\HoangN\Downloads\vietnamargo_final\vietnamargo\src\pages\contact-us-popover\contact-us-popover.html"*/'<ion-grid id="contactForm" padding>\n  <ion-row style="height: 100%;" justify-content-center align-items-center>\n    <ion-item style="margin-bottom: 10px;" no-lines>\n      <span item-start class="punchingLabel">\n        Liên Hệ Với Chúng Tôi\n      </span>\n      <img item-end loading="lazy" src="imgs/send.png" style="float:right; width:40px" />\n    </ion-item>\n   \n    <ion-item no-lines>\n      <ion-label fixed>Họ Tên <span class="requiredInput">(*)</span></ion-label>\n      <ion-textarea [(ngModel)]="contactUsInput.name" maxlength="40" placeholder="nhập họ tên..."></ion-textarea>\n    </ion-item>\n    <ion-item no-lines>\n      <ion-label fixed>Email <span class="requiredInput">(*)</span></ion-label>\n      <ion-textarea [(ngModel)]="contactUsInput.email" maxlength="40" placeholder="nhập email...">\n      </ion-textarea>\n    </ion-item>\n   \n    <input style="border: 1px solid lightblue;\n    border-radius: 15px;\n    padding-top: 5px;\n    padding-bottom: 5px;" type="tel" id="phone" name="phone">\n\n    <ion-item style="margin-top:10px" no-lines>\n      <ion-label fixed>Nội dung <span class="requiredInput">(*)</span></ion-label>\n      <ion-textarea [(ngModel)]="contactUsInput.content[0]" rows="5" #contactUsContentInput id="contactUsContentInput"\n        (keyup)="textAreaResize()" placeholder="nhập nội dung..."></ion-textarea>\n    </ion-item>\n\n    <div (click)="validateInput()" style="width:200px; height: 50px; display: table;\n    margin: 0 auto;background-color: transparent; text-align: center;">\n    <div style="display:table-cell; vertical-align: middle; width:75%; background-color: tomato;">\n    <span style="font-weight: bold; color: white;">Gửi Thông Tin</span>\n    </div>\n    <div style="display:table-cell; width:25%; background-color: #f3dd1d; vertical-align: middle;">\n      <ion-icon style="font-size: 2em; font-weight: bold; color: white;" name="ios-arrow-forward"></ion-icon>\n    </div>\n    </div>\n\n  </ion-row>\n</ion-grid>'/*ion-inline-end:"C:\Users\HoangN\Downloads\vietnamargo_final\vietnamargo\src\pages\contact-us-popover\contact-us-popover.html"*/,
+            selector: 'page-contact-us-popover',template:/*ion-inline-start:"C:\Users\HoangN\Desktop\ionic\vietnamargo\src\pages\contact-us-popover\contact-us-popover.html"*/'<ion-grid id="contactForm" padding>\n  <ion-row style="height: 100%;" justify-content-center align-items-center>\n    <ion-item style="margin-bottom: 10px;" no-lines>\n      <span item-start class="punchingLabel">\n        Liên Hệ Với Chúng Tôi\n      </span>\n      <img item-end loading="lazy" src="imgs/send.png" style="float:right; width:40px" />\n    </ion-item>\n   \n    <ion-item no-lines>\n      <ion-label fixed>Họ Tên <span class="requiredInput">(*)</span></ion-label>\n      <ion-textarea [(ngModel)]="contactUsInput.name" maxlength="40" placeholder="nhập họ tên..."></ion-textarea>\n    </ion-item>\n    <ion-item no-lines>\n      <ion-label fixed>Email <span class="requiredInput">(*)</span></ion-label>\n      <ion-textarea [(ngModel)]="contactUsInput.email" maxlength="40" placeholder="nhập email...">\n      </ion-textarea>\n    </ion-item>\n   \n    <input style="border: 1px solid lightblue;\n    border-radius: 15px;\n    padding-top: 5px;\n    padding-bottom: 5px;" type="tel" id="phone" name="phone">\n\n    <ion-item style="margin-top:10px" no-lines>\n      <ion-label fixed>Nội dung <span class="requiredInput">(*)</span></ion-label>\n      <ion-textarea [(ngModel)]="contactUsInput.content[0]" rows="5" #contactUsContentInput id="contactUsContentInput"\n        (keyup)="textAreaResize()" placeholder="nhập nội dung..."></ion-textarea>\n    </ion-item>\n\n    <div (click)="validateInput()" style="width:200px; height: 50px; display: table;\n    margin: 0 auto;background-color: transparent; text-align: center;">\n    <div style="display:table-cell; vertical-align: middle; width:75%; background-color: tomato;">\n    <span style="font-weight: bold; color: white;">Gửi Thông Tin</span>\n    </div>\n    <div style="display:table-cell; width:25%; background-color: #f3dd1d; vertical-align: middle;">\n      <ion-icon style="font-size: 2em; font-weight: bold; color: white;" name="ios-arrow-forward"></ion-icon>\n    </div>\n    </div>\n\n  </ion-row>\n</ion-grid>'/*ion-inline-end:"C:\Users\HoangN\Desktop\ionic\vietnamargo\src\pages\contact-us-popover\contact-us-popover.html"*/,
         }),
         __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_2__providers_globalhero_globalhero__["a" /* GlobalheroProvider */], __WEBPACK_IMPORTED_MODULE_3__providers_firebase_services_customerFirebaseController__["a" /* customerFirebaseController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["i" /* NavController */], __WEBPACK_IMPORTED_MODULE_1_ionic_angular__["j" /* NavParams */]])
     ], ContactUsPopoverPage);
