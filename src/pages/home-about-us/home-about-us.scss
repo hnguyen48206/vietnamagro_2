@@ -1,0 +1,54 @@
+page-home-about-us {
+    .processSlide{
+        height: 65vh; width:100%;
+      }
+      .slideBtn{
+        top: -55%;
+    z-index: 999;
+    color:white
+      }
+      .slideBtn ion-icon{
+        font-size: 3em;
+        font-weight: bold;;
+      }
+      .swiper-pagination-bullet-active {
+        background: yellow;
+        opacity: 1;
+    }
+    .slide-zoom {
+      width: 100%;
+      height: 100%;
+  }
+  .punchingLabel{
+    font-family:'Roboto Slab', serif;
+    font-size: 2.8rem;
+    color: yellowgreen;
+  }
+  .punchingSubLabel{
+    font-size: clamp(1.5rem, 2rem , 2.2rem);
+    color: rgb(250, 173, 173);
+  }
+  .processContent{
+    font-size: clamp(1.5rem, 2rem , 2.2rem);
+    margin-left:5%;
+    margin-right:5%;
+    width:90%;
+    display:block
+  }
+  .processContent:before {
+    color: #ccc;
+    content: open-quote;
+    font-size: 2em;
+    line-height: 0.1em;
+    margin-right: 0.1em;
+    vertical-align: -0.4em;;
+}
+.processContent:after {
+    color: #ccc;
+    content: close-quote;
+    font-size: 2em;
+    line-height: 0.1em;
+    margin-left: 0.1em;
+    vertical-align: -0.4em;;
+}
+}

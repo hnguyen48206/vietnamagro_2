@@ -1,0 +1,88 @@
+<ion-content class="home_productHome" no-padding>
+
+  <app-header *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-header>
+  
+  <div class="contentSection">
+    <div class="processSlide" *ngIf="listOfProcess.length!=0">
+      <ion-slides id="processSlide" #processSlide autoplay="2000" loop="true" pager="true" paginationType="bullets"
+        style="width: 100%; height:100%;" *ngIf="listOfProcess[0].status">
+        <ion-slide *ngFor="let processImg of listOfProcess[0].mediaList">
+          <img loading="lazy" *ngIf="!global.isVideoCheck(processImg)" [src]="processImg"
+            style="width: 100%; height:100%; object-fit: cover;" />
+          <div *ngIf="global.isVideoCheck(processImg)" class="video-container">
+            <video autoplay oncanplay="this.muted=true" loop>
+              <source [src]="processImg" type="video/mp4" />
+            </video>
+          </div>
+        </ion-slide>
+      </ion-slides>
+      <button (click)="prevSlide('processSlide')" float-left ion-button icon-only clear color="primary" class="slideBtn"
+        (click)="prev()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button (click)="nextSlide('processSlide')" float-right ion-button icon-only clear color="primary"
+        class="slideBtn" (click)="next()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </div>
+    <div *ngIf="listOfProductGroups!=null && listOfProductGroups.isRequired" class="productsWrapper">
+      <ion-item style="width: 100%;" no-lines text-center no-padding text-wrap><span class="punchingLabel">SẢN
+          PHẨM</span></ion-item>
+      <div style="display:inline;
+      text-align:center;">
+        <div (click)="menuClick('productGroup'+ productGroup.groupName)" *ngFor="let productGroup of listOfProductGroupsToDisplay"
+          [ngStyle]="{ 'background-image': 'url(' + productGroup.groupAvatar + ')'}" style="
+          background-size: cover;
+          background-position: center;
+          background-repeat: no-repeat;
+          height: 45vh; width: 30%; float: left; margin:1.5%;
+          border: 1px solid #ffe9e9; border-radius:15px">                   
+          <ion-item no-lines text-center no-padding text-wrap
+            style="border-radius: 0 0 15px 15px; width: 100%; height: 15%; position:relative; bottom: -85%; background: rgba(76, 175, 80, 0.3)">
+            <span class="punchingSubLabel">{{productGroup.groupName}}</span>
+          </ion-item>
+        </div>
+      </div>
+    </div>
+    <div class="newsWrapper">
+      <ion-item style="width: 100%;" no-lines text-center no-padding text-wrap><span class="punchingLabel">TIN
+          TỨC</span></ion-item>
+     
+      <div class="custom_row">
+        <ng-container  *ngFor="let news of listOfNews; let i=index">
+        <div (click)="readNewsDetail(news)" class="custom_column"  *ngIf="i < 7">
+          <div class="custom_card">
+            <figure>
+              <img loading="lazy" [src]="news.mediaList[0]" />
+              <figcaption>
+                <h3>{{news.title}}</h3>
+              </figcaption>
+            </figure>
+            <div class="custom_card_content">
+              <div class="newsSubTitleWarpper"><span>{{news.shortDescription}}</span></div>
+              <p class="newsContentWarpper">{{news.detail}}</p>
+            </div>
+          </div>
+        </div>
+        <div (click)="readNewsDetail(null)" class="custom_column" style="padding-top:180px" *ngIf="(i==7) || ((i < 7) && (i == (listOfNews.length - 1)))">
+            <button style="
+                background-color: yellowgreen;
+                margin: 0 auto;
+                top: 40%;" (click)="nextSlide('processSlide')" ion-fab>
+                  <ion-icon name="ios-more-outline" style="font-size: 4rem;"></ion-icon>
+                </button>
+        </div>
+      </ng-container>
+      </div>
+    </div>
+  
+  </div>
+
+  <app-footer *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-footer>
+
+  <ion-fab (click)="global.openContactUsPopOver()" bottom right>
+    <div style="width:80px; height: 80px; border-radius: 50px; border: solid 1px lightblue;">
+      <img style="width:100%; height: 100%; object-fit: cover; border-radius: 50px" src="imgs/contactGif.gif"/>
+    </div>
+  </ion-fab>
+</ion-content>

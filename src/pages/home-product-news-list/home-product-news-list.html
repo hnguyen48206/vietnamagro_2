@@ -1,0 +1,31 @@
+<ion-content class="home_productHome" no-padding>
+  <app-header *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-header>
+  <div style="margin:5vw">
+    <div class="custom_row">
+      <div data-target="simpleModal_2" data-toggle="modal" (click)="readNewsDetail(news)" class="custom_column"
+        *ngFor="let news of listOfNews | paginate: { itemsPerPage: 10, currentPage: currentPage }">
+        <div class="custom_card">
+          <figure>
+            <img loading="lazy" [src]="news.mediaList[0]" />
+            <figcaption>
+              <h3>{{news.title}}</h3>
+            </figcaption>
+          </figure>
+          <div class="custom_card_content">
+            <div class="newsSubTitleWarpper"><span>{{news.shortDescription}}</span></div>
+            <p class="newsContentWarpper">{{news.detail}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <pagination-controls style="float: right; margin-top: 20px;" previousLabel="Trang trước" nextLabel="Trang sau"
+      (pageChange)="currentPage = $event" responsive="true"></pagination-controls>
+  </div>
+
+  <ion-fab (click)="global.openContactUsPopOver()" bottom right>
+    <div style="width:80px; height: 80px; border-radius: 50px; border: solid 1px lightblue;">
+      <img style="width:100%; height: 100%; object-fit: cover; border-radius: 50px" src="imgs/contactGif.gif"/>
+    </div>
+  </ion-fab>
+  <app-footer *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-footer>
+</ion-content>

@@ -1,0 +1,27 @@
+page-home-contact-us {
+   
+#contactWrapper{
+    font-family: 'Montserrat', sans-serif;
+    width: 100%;
+    height: 100%;
+   background: transparent;
+  }
+  .punchingLabel{
+    font-family:'Roboto Slab', serif;
+    font-size: 2.2rem;
+    color: yellowgreen;
+  }
+  #contactForm{
+    height: 100%; width:clamp(500px, 60%, 60%)
+  }
+}
+
+.iti{    
+    margin-left: 2%;
+    float: left;
+    width: 100%;
+}
+.iti__selected-flag {
+    border-top-left-radius: 15px;
+    border-bottom-left-radius: 15px;
+}

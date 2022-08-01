@@ -1,0 +1,28 @@
+app-footer {
+    position: relative;
+    bottom:0;
+    .footerBar{
+        margin-top: 15vh;
+        background-image: linear-gradient(to right top, #051937, #004d7a, #008793, #00bf72, #a8eb12);
+        color: whitesmoke;
+        font-family: 'Montserrat', sans-serif;
+      }
+      #contactContent p{
+        float:left
+      }
+      #contactContent p ion-icon{
+        margin-right:10px
+      } 
+      #footerSubmenu li a{
+        color:white;
+        font-weight: 500;
+      }
+      #footerSubmenu li{
+        margin:10px
+      }
+      br {
+        display: block; /* makes it have a width */
+        content: ""; /* clears default height */
+        margin-top: 5px; /* change this to whatever height you want it */
+      }
+}

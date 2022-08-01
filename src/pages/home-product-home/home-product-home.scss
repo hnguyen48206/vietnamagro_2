@@ -1,0 +1,280 @@
+page-home-product-home {         
+      .processSlide{
+        height: 60vh; width:100%;
+      }
+      .slideBtn{
+        top: -55%;
+    z-index: 999;
+    color:white
+      }
+      .slideBtn ion-icon{
+        font-size: 3em;
+        font-weight: bold;;
+      }
+      .swiper-pagination-bullet-active {
+        background: yellow;
+        opacity: 1;
+    }
+    .slide-zoom {
+      width: 100%;
+      height: 100%;
+  }
+  .video-container {
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    position: relative;
+}
+
+.video-container video {
+  min-width: 100%;
+  min-height: 100%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translateX(-50%) translateY(-50%);
+}
+  .productsWrapper{
+    margin-top: 3%;
+    margin-left: 5%;
+    margin-right: 5%;
+    width: 90%;
+  }
+  .punchingLabel{
+    font-family:'Roboto Slab', serif;
+    font-size: 3rem;
+    color: yellowgreen;
+  }
+  .punchingSubLabel{
+    font-family:'Roboto Slab', serif;
+    font-size: 1.7vw;
+    color: whitesmoke;
+  }
+ .newsWrapper{
+   padding: 5vw
+ }
+  .newsContentWarpper{
+    line-height: 1.5em;
+    height: 6em;  
+    overflow: hidden; 
+     }
+     .newsSubTitleWarpper{
+      margin: 0px 0px 10px 0px;
+      display: -webkit-box;
+      overflow : hidden;
+      text-overflow: ellipsis;
+      -webkit-line-clamp: 3;
+      -webkit-box-orient: vertical; 
+      font-family:'Roboto Slab', serif;
+      font-weight: lighter;
+     }
+     .newsTitleWarpper{
+      line-height: 1.5em;
+      height: 4.5em;  
+      overflow: hidden; 
+      font-family:'Roboto Slab', serif;
+   }
+   ion-slide{
+    width: 100% !important;
+    height: 100% !important;
+}
+
+  #newsDetailDialog{
+    top:5vh;
+    height: 90vh;
+    width: 80vw; 
+    overflow: scroll;
+    -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+     }
+  #newsDetailDialog::-webkit-scrollbar {
+    display: none;
+  }
+
+   figure {
+    height: 30vh;
+    overflow: hidden;
+    border-top-left-radius: .5rem;
+    border-top-right-radius: .5rem;
+    position: relative;
+    padding:0;
+    margin:0px;
+  }
+  
+  figure img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+  
+  figure figcaption {
+    position: absolute;
+    bottom: 0;
+    background-color: rgba(0,0,0,.7);
+    width: 100%;
+  }
+
+  figure figcaption h3 {
+    color: white;
+    padding: .75rem;
+    font-size: 1.8rem;
+  }
+
+     
+      $color: rgb(255, 255, 255);
+      $color-dark: scale-color($color, $lightness: -30%);
+      
+      $transition: 280ms all 120ms ease-out;
+
+      .dropdown__title {
+        background-color: transparent;
+        border: none;
+        font-family: inherit;
+      }
+      
+      nav {
+        z-index: 999;
+        background-color: $color;
+        padding: 0 1rem;
+        position: sticky;
+        top: 0;
+        display: grid;
+        place-items: center;
+      
+        > ul {
+          grid-auto-flow: column;
+      
+          > li {
+            margin: 0 0.5rem;
+      
+            a,
+            .dropdown__title {
+                font-weight: bold;
+              text-decoration: none;
+              text-align: center;
+              display: inline-block;
+              color: #ff6d6d;
+    font-size: 1.5rem;
+      
+              &:focus {
+                outline: none;
+              }
+            }
+      
+            > a,
+            .dropdown__title {
+              padding: 1rem 0.5rem;
+              border-top: 3px solid transparent;
+              transition: $transition;
+      
+              &:hover,
+              &:focus {
+                border-top-color: pink;
+                color: pink;
+              }
+            }
+          }
+        }
+      
+        ul {
+          list-style: none;
+          margin: 0;
+          padding: 0;
+          display: grid;
+      
+          li {
+            padding: 0;
+          }
+        }
+      }
+      
+      .dropdown {
+        position: relative;
+      
+        .dropdown__title {
+          display: inline-flex;
+          align-items: center;
+      
+          &:after {
+            content: "";
+            border: 0.35rem solid transparent;
+            border-top-color: rgba(#fff, 0.45);
+            margin-left: 0.25em;
+            transform: translateY(0.15em);
+          }
+        }
+      
+        .dropdown__menu {
+          position: absolute;
+          min-width: 15ch;
+          left: 50%;
+          top: calc(100% - 0.25rem);
+          transition: $transition;
+          transform: rotateX(-90deg) translateX(-50%);
+          transform-origin: top center;
+          visibility: hidden;
+          opacity: 0.3;
+          padding: 0.5em 0;
+          background-color: #fff;
+          border-radius: 4px;
+          box-shadow: 0 0.15em 0.25em rgba(black, 0.25);
+      
+          a {
+            color: $color-dark;
+            display: block;
+            padding: 0.5em;
+            opacity: 0;
+            transition: $transition;
+      
+            &:hover {
+              background-color: rgba($color, 0.15);
+            }
+      
+            &:focus {
+              outline: none;
+              background-color: rgba($color, 0.25);
+            }
+          }
+        }
+      
+        &:after {
+          content: "";
+          border: 0.5rem solid transparent;
+          border-bottom-color: #fff;
+          position: absolute;
+          top: calc(100% - 1.25rem);
+          left: 50%;
+          transform: translateX(-50%);
+          transition: $transition;
+          opacity: 0;
+          will-change: opacity;
+        }
+      
+        &:hover,
+        &:focus-within {
+          .dropdown__title {
+            border-top-color: pink;
+          }
+      
+          .dropdown__menu {
+            opacity: 1;
+            transform: rotateX(0) translateX(-50%);
+            visibility: visible;
+      
+            a {
+              opacity: 1;
+            }
+          }
+      
+          &:after {
+            opacity: 1;
+          }
+        }
+      }
+}
+
+.home_productHome{
+  font-family: 'Montserrat', sans-serif;
+  width: 100%;
+  height: 100%;
+}

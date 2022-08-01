@@ -1,0 +1,42 @@
+<ion-content no-padding>
+  <app-header *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-header>
+  <div style="width: 100%;" *ngIf="listOfProcess.length!=0 && listOfProcess[0].status">
+    <div class="processSlide" >
+      <ion-slides id="processSlide" #processSlide autoplay="2000" loop="true" pager="true" paginationType="bullets"
+        style="width: 100%; height:100%;">
+        <ion-slide *ngFor="let processImg of listOfProcess[0].mediaList">
+          <img loading="lazy" *ngIf="!global.isVideoCheck(processImg)" [src]="processImg"
+            style="width: 100%; height:100%; object-fit: cover;" />
+          <div *ngIf="global.isVideoCheck(processImg)" class="video-container">
+            <video autoplay oncanplay="this.muted=true" loop>
+              <source [src]="processImg" type="video/mp4" />
+            </video>
+          </div>
+        </ion-slide>
+      </ion-slides>
+      <button (click)="prevSlide('processSlide')" float-left ion-button icon-only clear color="primary" class="slideBtn"
+        (click)="prev()">
+        <ion-icon name="ios-arrow-back"></ion-icon>
+      </button>
+      <button (click)="nextSlide('processSlide')" float-right ion-button icon-only clear color="primary"
+        class="slideBtn" (click)="next()">
+        <ion-icon name="ios-arrow-forward"></ion-icon>
+      </button>
+    </div>
+  
+    <div style="margin:5vw">
+      <ion-item text-wrap style="margin-bottom: 20px;" text-center no-padding no-lines><span class="punchingLabel">{{listOfProcess[0].title}}</span>
+      <p style="margin-top:5px"><span class="punchingSubLabel">{{listOfProcess[0].shortDescription}}</span></p>
+      </ion-item>
+      <ion-item text-wrap text-justify no-padding no-lines><span class="processContent">{{listOfProcess[0].detail}}</span>
+      </ion-item>
+      </div>
+  </div>
+  <ion-fab (click)="global.openContactUsPopOver()" bottom right>
+    <div style="width:80px; height: 80px; border-radius: 50px; border: solid 1px lightblue;">
+      <img style="width:100%; height: 100%; object-fit: cover; border-radius: 50px" src="imgs/contactGif.gif"/>
+    </div>
+  </ion-fab>
+
+  <app-footer *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-footer>
+</ion-content>

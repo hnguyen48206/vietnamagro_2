@@ -1,0 +1,228 @@
+  <ion-header *ngIf="global.isLogin" no-border>
+    <ion-item no-lines>
+      <img loading="lazy" class="sidemenuIcon" item-start src="imgs/sidemenu.png" (click)="sideMenuTrigger()" />
+      Sản Phẩm
+    </ion-item>
+  </ion-header>
+
+<ion-content padding class="adminBG">
+
+  <div *ngIf="!global.isLogin" class="noLoginMessage">
+    <ion-item (click)="goHome()" no-lines text-center text-wrap>
+      <img loading="lazy" style='vertical-align:middle; width:30px; margin-right: 15px' src='imgs/home.png'>
+      <div style='vertical-align:middle; display:inline;'>
+        Bạn chưa đăng nhập hệ thống. Vui lòng đăng nhập trước khi sử dụng tính năng này.</div>
+    </ion-item>
+  </div>
+
+
+  <div *ngIf="global.isLogin && !addItem" class="dataGrid">
+    <div
+      *ngIf="newsCatergories.newsCatergoriesCollectionID.length>0 && newsCatergories.newsCatergoriesMetadata.length>0">
+      <ion-segment [(ngModel)]="currentChosenCatergory" color="primary" (ionChange)="segmentChanged($event)">
+        <ion-segment-button *ngFor="let catergory of newsCatergories.newsCatergoriesMetadata; let i=index"
+          value="{{newsCatergories.newsCatergoriesCollectionID[i]}}">
+          <h4 style="padding-top:4px; font-weight: bold;"><img loading="lazy" class="segmentIcon"
+              *ngIf="currentChosenCatergory==newsCatergories.newsCatergoriesCollectionID[i]"
+              src="imgs/tick.png" />{{newsCatergories.newsCatergoriesMetadata[i]}}</h4>
+        </ion-segment-button>
+      </ion-segment>
+
+      <ion-item no-lines>
+        <div *ngIf="listOfNewsGroups!=null && listOfNewsGroups.isRequired" (click)="openAddItemGroupDialog(null)"
+          class="actionBtn" item-end><img loading="lazy" style="width:30px;" src="imgs/add.png" /> Thêm Nhóm Sản Phẩm
+        </div>
+        <div (click)="openAddItem()" class="actionBtn" item-end><img loading="lazy" style="width:30px;"
+            src="imgs/add.png" /> Thêm Sản Phẩm</div>
+      </ion-item>
+
+      <dialog id="addItemGroupDialog">
+        <h2 *ngIf="addItemGroupDialogInput.mode=='create'" style="margin-bottom:10px">Thêm nhóm sản Phẩm</h2>
+        <h2 *ngIf="addItemGroupDialogInput.mode=='edit'" style="margin-bottom:10px"><img style="height: 50px;" [src]="addItemGroupDialogInput.oldAvatar"/>
+          Chỉnh sửa nhóm sản Phẩm</h2>
+
+        <ion-item>
+          <ion-label fixed>Tên nhóm <span class="requiredInput">(*)</span></ion-label>
+          <ion-textarea [(ngModel)]="addItemGroupDialogInput.groupName" maxlength="60" placeholder="nhập tên..."></ion-textarea>
+        </ion-item>
+        <ion-item>
+          <ion-label color="primary" stacked>Ảnh đại diện <span class="requiredInput">(*)</span></ion-label>
+          <ion-input accept="image/*" id="itemGroupAvatar" type="file" (change)="itemGroupAvatarChangeListener($event)" multiple>
+          </ion-input>
+        </ion-item>
+        <ion-item>
+          <button style="padding:15px" ion-button color="danger" round="true" (click)="closeAddItemGroupDialog()">Hủy</button>
+          <button style="padding:15px"  ion-button round="true" (click)="addItemGroupConfirm()">Đồng ý</button>
+         </ion-item>
+        </dialog> 
+
+      <div *ngIf="listOfNewsGroups!=null && listOfNewsGroups.isRequired" class="newsGroupsManagerWrapper">
+        <ion-item no-lines>
+          <span style="padding: 7px;
+        border: solid 2px #ffc98a;
+        display: inline-block; width:100%;
+        border-radius: 15px;">Nhóm Sản Phẩm</span>
+        </ion-item>
+        <div class="row margintop20px paddingtopbottom15px whitebackground">
+          <div class="col-12">
+            <div class="table-responsive">
+              <table class="table table-striped table-hover table-bordered " [mfData]="listOfNewsGroupsToDisplay"
+                #mf="mfDataTable" [mfRowsOnPage]="10">
+                <thead>
+                  <tr>
+                    <th style="width:40px;max-width:40px;">#</th>
+                    <th>
+                      <mfDefaultSorter by="groupName">Tên nhóm</mfDefaultSorter>
+                    </th>
+                    <th>
+                      Ảnh đại diện
+                    </th>
+                    <th>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody *ngIf="listOfNewsGroupsToDisplay.length>0">
+                  <ng-container *ngFor="let item of mf.data; let i = index;">
+                    <tr>
+                      <td style="vertical-align: middle;" scope="row">{{i+1}}</td>
+                      <td style="vertical-align: middle;">{{item.groupName}}</td>
+                      <td style="vertical-align: middle;"><img style="height:30px" [src]="item.groupAvatar"/></td>
+                      <td>
+                        <ion-item style="background:transparent" no-padding no-lines text-center>
+                          <img loading="lazy" (click)="openAddItemGroupDialog(item)" src="imgs/edit.png"
+                            style="width:20px; margin-right:10%" />
+                          <img loading="lazy" (click)="deleteItemGroup(item)" src="imgs/delete.png"
+                            style="width:20px" />
+                        </ion-item>
+                      </td>
+                    </tr>
+                  </ng-container>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td colspan="4">
+                      <mfBootstrapPaginator></mfBootstrapPaginator>
+                    </td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <ion-item no-lines>
+        <span style="padding: 7px;
+        border: solid 2px #ffc98a;
+        display: inline-block; width:100%;
+        border-radius: 15px;">Sản Phẩm</span>
+      </ion-item>
+      <div class="row margintop20px paddingtopbottom15px whitebackground">
+        <div class="col-12">
+          <div class="table-responsive">
+            <table class="table table-striped table-hover table-bordered " [mfData]="listOfNews" #mf="mfDataTable"
+              [mfRowsOnPage]="10">
+              <thead>
+                <tr>
+                  <th style="width:40px;max-width:40px;">#</th>
+                  <th>
+                    <mfDefaultSorter by="title">Tiêu đề</mfDefaultSorter>
+                  </th>
+                  <th *ngIf="listOfNewsGroups!=null && listOfNewsGroups.isRequired">
+                    <mfDefaultSorter by="groupName">Nhóm</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="shortDescription">Mô tả ngắn</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="status">Trạng thái</mfDefaultSorter>
+                  </th>
+                  <th>
+                    <mfDefaultSorter by="lastUpdated.date">Ngày cập nhật</mfDefaultSorter>
+                  </th>
+                  <th style="width:10%">                 
+                  </th> 
+                </tr>
+              </thead>
+              <tbody>
+                <ng-container *ngFor="let item of mf.data; let i = index;">
+                  <tr *ngIf="item.title!=null">
+                    <td style="vertical-align: middle;" scope="row">{{i+1}}</td>
+                    <td style="vertical-align: middle;">{{item.title}}</td>
+                    <td *ngIf="listOfNewsGroups!=null && listOfNewsGroups.isRequired" style="vertical-align: middle;">{{item.groupName}}</td>
+                    <td style="vertical-align: middle;">{{item.shortDescription}}</td>
+                    <td *ngIf="item.status" style="vertical-align: middle;">xuất bản</td>
+                    <td *ngIf="!item.status" style="vertical-align: middle;">không xuất bản</td>
+                    <td style="vertical-align: middle;">{{item.lastUpdated.date}}</td>
+                    <td>
+                      <ion-item style="background:transparent" no-padding no-lines text-center>
+                        <img loading="lazy" (click)="editItem(item)" src="imgs/edit.png"
+                          style="width:20px; margin-right:10%" />
+                        <img loading="lazy" (click)="deleteItem(item)" src="imgs/delete.png" style="width:20px" />
+                      </ion-item>
+                    </td>
+                  </tr>
+                </ng-container>
+              </tbody>
+              <tfoot>
+                <tr>
+                  <td colspan="4">
+                    <mfBootstrapPaginator></mfBootstrapPaginator>
+                  </td>
+                </tr>
+              </tfoot>
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="global.isLogin && addItem" class="addItemWrapper">
+    <div style="width: 100%; margin-bottom: 8%;">
+      <img loading="lazy" (click)="validateInput()" src="imgs/send.png" style="float:right; width:40px" />
+      <img loading="lazy" (click)="closeAddItem()" src="imgs/close.png" style="width: 30px; float:left" />
+    </div>
+
+    <ion-item>
+      <ion-label fixed>Tiêu đề <span class="requiredInput">(*)</span></ion-label>
+      <ion-textarea [(ngModel)]="userInput.title" maxlength="60" placeholder="nhập tiêu đề..."></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Mô tả ngắn</ion-label>
+      <ion-textarea [(ngModel)]="userInput.shortDescription" maxlength="120" placeholder="nhập mô tả...">
+      </ion-textarea>
+    </ion-item>
+    <ion-item  *ngIf="this.listOfNewsGroups!=null && this.listOfNewsGroups.isRequired">
+      <ion-label>Nhóm sản phẩm <span class="requiredInput">(*)</span></ion-label>
+      <ion-select [(ngModel)]="userInput.groupName">
+        <ion-option *ngFor="let group of listOfNewsGroupsToDisplay" [value]="group.groupName">{{group.groupName}}</ion-option>       
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label style="color:#999">Trang thái xuất bản</ion-label>
+      <ion-toggle [(ngModel)]="userInput.status"></ion-toggle>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Chọn thêm File Media</ion-label>
+      <ion-input accept="video/*,image/*" id="fileInputId" type="file" (change)="fileChangeListener($event)" multiple>
+      </ion-input>
+    </ion-item>
+    <ion-grid style="padding:10px" *ngIf="mediaListToSend.length!=0">
+      <ion-row *ngFor="let file of mediaListToSend ; let i = index">
+        <ion-col col-1>
+          <ion-icon (click)="removeFileFromList(file.name)" style="font-size: 1.5rem; color: tomato; margin-right:10px"
+            name="md-close">
+          </ion-icon>
+        </ion-col>
+        <ion-col>{{file.name}}</ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <ion-label fixed>Nội dung <span class="requiredInput">(*)</span></ion-label>
+      <ion-textarea [(ngModel)]="userInput.detail" rows="5" #itemContentInput id="itemContentInput"
+        (keyup)="textAreaResize()" placeholder="nhập nội dung..."></ion-textarea>
+    </ion-item>
+  </div>
+
+</ion-content>

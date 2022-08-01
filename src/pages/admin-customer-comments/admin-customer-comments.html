@@ -1,0 +1,107 @@
+  <ion-header *ngIf="global.isLogin" no-border>
+    <ion-item no-lines>
+      <img loading="lazy" class="sidemenuIcon" item-start src="imgs/sidemenu.png" (click)="sideMenuTrigger()" />
+      Contacts Khách Hàng
+    </ion-item>
+  </ion-header>
+
+<ion-content padding class="adminBG">
+
+  <div *ngIf="!global.isLogin" class="noLoginMessage">
+    <ion-item (click)="goHome()" no-lines text-center text-wrap>
+      <img loading="lazy" style='vertical-align:middle; width:30px; margin-right: 15px' src='imgs/home.png'>
+      <div style='vertical-align:middle; display:inline;'>
+        Bạn chưa đăng nhập hệ thống. Vui lòng đăng nhập trước khi sử dụng tính năng này.</div>
+    </ion-item>
+  </div>
+
+
+  <div *ngIf="global.isLogin && !showDetail" class="dataGrid">
+    <div class="row margintop20px paddingtopbottom15px whitebackground">
+      <div class="col-12">
+        <div class="table-responsive">
+          <table class="table table-striped table-hover table-bordered " [mfData]="listOfComments" #mf="mfDataTable"
+            [mfRowsOnPage]="10">
+            <thead>
+              <tr>
+                <th style="width:40px;max-width:40px;">#</th>
+                <th>
+                  <mfDefaultSorter by="status">Trạng thái</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="email">Email</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="name">Họ tên</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="phone">Số điện thoại</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="content">Nội dung</mfDefaultSorter>
+                </th>
+                <th>
+                  <mfDefaultSorter by="lastUpdated.date">Ngày cập nhật</mfDefaultSorter>
+                </th>
+                <th>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              <ng-container *ngFor="let item of mf.data; let i = index;">
+                <tr>
+                  <td style="vertical-align: middle;" scope="row">{{i+1}}</td>
+                  <td *ngIf="item.status" style="vertical-align: middle;">đã đọc</td>
+                  <td *ngIf="!item.status" style="vertical-align: middle;">chưa đọc</td>
+                  <td style="vertical-align: middle;">{{item.email}}</td>
+                  <td style="vertical-align: middle;">{{item.name}}</td>
+                  <td style="vertical-align: middle;">{{item.phone}}</td>
+                  <td style="vertical-align: middle; max-width: 200px;">
+                  <p style=" -webkit-box-orient: vertical;
+                  display: -webkit-box;
+                  -webkit-line-clamp: 2;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
+                  white-space: normal;">
+                   {{item.content[0]}}</p></td>
+                  <td style="vertical-align: middle;">{{item.lastUpdated.date}}</td>
+                  <td>
+                    <ion-item style="background:transparent" no-padding no-lines text-center>
+                      <img loading="lazy" (click)="viewItem(item)" src="imgs/view.png" style="width:20px; margin-right:10%" />
+                      <img loading="lazy" (click)="deleteItem(item)" src="imgs/delete.png" style="width:20px" />
+                    </ion-item>
+                  </td>
+                </tr>
+              </ng-container>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td colspan="4">
+                  <mfBootstrapPaginator></mfBootstrapPaginator>
+                </td>
+              </tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div *ngIf="global.isLogin && showDetail" class="addItemWrapper">
+    <div style="width: 100%; margin-bottom: 3%;">
+      <img loading="lazy" (click)="closeShowDetail()" src="imgs/close.png" style="width: 30px; float:left" />
+    </div>
+
+    <ion-item text-wrap no-lines text-center><h4><b>Thông tin người gửi</b></h4></ion-item>
+    <ion-item text-wrap no-lines><b>Email:</b> {{currentItemToGetDetail.email}}</ion-item>
+    <ion-item text-wrap no-lines><b>Họ và tên:</b> {{currentItemToGetDetail.name}}</ion-item>
+    <ion-item text-wrap no-lines><b>Số điện thoại:</b> {{currentItemToGetDetail.phone}}</ion-item>
+    <ion-item text-wrap no-lines><b>Lần cập nhật cuối:</b> {{currentItemToGetDetail.lastUpdated.date}}</ion-item>
+    <ion-item text-wrap no-lines><b>Nội dung:</b> 
+      <div style="margin-top:10px;padding:10px; border-radius:15px; border:solid lightblue 1px" *ngFor="let message of currentItemToGetDetail.content">{{message}}</div>
+    </ion-item>
+
+  </div>
+<!-- <button ion-button block (click)="createComment()"></button> -->
+</ion-content>
+

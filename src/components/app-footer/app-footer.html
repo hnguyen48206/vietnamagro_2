@@ -1,0 +1,37 @@
+<div *ngIf="contactDetail!=null" class="footerBar">
+  <ion-grid>
+    <ion-row style="height:10px"></ion-row>
+    <ion-row justify-content-center align-items-center>
+      <ion-col text-center>
+        <img (click)="goHome()" loading="lazy" src="https://i.ibb.co/pJZQzqV/sitelogo.png" />
+      </ion-col>
+      <ion-col id="contactContent" *ngIf="contactDetail!=null">
+        <p>
+          <ion-icon name="contact"></ion-icon>
+          Tên Công Ty: {{contactDetail.companyName}}
+          <br>
+          <ion-icon name="md-home"></ion-icon>
+          Địa Chỉ: {{contactDetail.address}}
+          <br>
+          <ion-icon name="md-call"></ion-icon>
+          Số Điện Thoại: {{contactDetail.phone}}
+          <br>
+          <ion-icon name="md-mail"></ion-icon>
+          Email: {{contactDetail.email}}
+          <br>
+          <ion-icon name="md-globe"></ion-icon>
+          Website: {{contactDetail.website}}
+        </p>
+      </ion-col>
+      <ion-col id="footerSubmenu" text-center>
+        <li><a href="#" (click)="menuClick('news')">Tin Tức</a></li>
+        <li><a href="#" (click)="menuClick('process')">Quy Trình</a></li>
+        <li><a href="#" (click)="menuClick('aboutus')">Giới Thiệu</a></li>
+        <li><a href="#" (click)="menuClick('contact')">Liên Hệ</a></li>
+      </ion-col>
+    </ion-row>
+    <ion-row justify-content-center align-items-center>
+      <span style="font-size: 1.2rem;">Copyright © 2020 Vietnamagro. All rights reserved. Design by HoangN</span>
+    </ion-row>
+  </ion-grid>
+</div>

@@ -1,0 +1,35 @@
+page-admin-products {
+    .scroll-content{
+        display: flex;
+        justify-content: center;  
+    }
+    
+    .segmentIcon{
+        width:20px
+    }
+    .addItemWrapper{
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 75vw;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        background:white;
+        padding:30px;
+        overflow:auto;
+    }
+    .actionBtn{
+        padding: 5px;
+    border: solid 1px lightgrey;
+    border-radius: 15px;
+    }
+    .newsGroupsManagerWrapper{
+        
+    }
+    #addItemGroupDialog{
+        border: solid 2px tomato;
+    border-radius: 15px;
+    padding: 5vh;
+    }
+}

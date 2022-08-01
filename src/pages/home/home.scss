@@ -1,0 +1,134 @@
+page-home {
+    @import url('https://fonts.googleapis.com/css?family=Montserrat:400,700');
+    @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@900&display=swap');
+
+    
+    .homeBG{
+        font-family: 'Montserrat', sans-serif;
+        width: 100%;
+        height: 100%;
+        background: url('../imgs/ricefield.jpg') center center no-repeat;
+        background-size: cover;
+
+        --text-light: rgba(255,255,255,0.6);
+        --text-lighter: rgba(255,255,255,0.9);
+        --spacing-s: 8px;
+        --spacing-m: 16px;
+        --spacing-l: 24px;
+        --spacing-xl: 32px;
+        --spacing-xxl: 64px;
+        --width-container: 1200px;
+      }
+      .homeBG:before {
+        content: '';
+        position: absolute;
+        background-image: linear-gradient(to top, transparent, white);
+        opacity: 2.5; 
+        height:100%;
+        width:100%;
+      }
+      .logoHeader{
+          width: 100%; height: 20%; 
+      }
+      .logoHeader img{
+          height:100%
+      }
+      .catergoriesCards{
+          margin-left:15%;margin-right:15%;
+          height:65%
+      }
+      .catergoriesCards ion-grid{
+          width: 100%;height:100%;
+      }
+      .catergoriesCards ion-grid ion-row{
+        width: 100%;height:100%; margin:0px
+    }
+      .cardItem {
+          border-radius: 15px;
+          height:100%; width:100%; margin-left:2%; margin-right:2%
+      }
+      .catergoriesCards ion-grid ion-row:hover > .cardItem:not(:hover) .card__background{
+        filter: brightness(0.5) saturate(0) contrast(1.2) blur(20px);
+      }
+      .cardItem:hover .card__background{
+        transform: scale(1.05) translateZ(0);
+      }
+      .card__background{
+        background-size: cover;
+        background-position: center;
+        border-radius: var(--spacing-l);
+        bottom: 0;
+        filter: brightness(0.95) saturate(1.2) contrast(0.85);
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center;
+        transform: scale(1) translateZ(0);
+        transition: 
+          filter 200ms linear,
+          transform 200ms linear;
+      }
+      .card__content{
+        left: 0;
+        padding: var(--spacing-l);
+        position: absolute;
+        bottom: 0;
+      }
+         
+      .card__heading{
+        color: var(--text-lighter);
+        font-size: 2vw;
+        font-weight: bold;
+        text-shadow: 2px 2px 20px rgba(0,0,0,0.2);
+        line-height: 1.4;
+        word-spacing: 100vw;
+      }
+      .creditline{
+          position: absolute;
+          bottom: 0;
+          width:100%;
+          height: 10%;
+          background:transparent;
+          color: whitesmoke
+      }
+    }
+    page-home::-webkit-scrollbar {
+      width: 0px;
+      background: none;
+      }
+    a.gflag {
+        vertical-align: middle;
+        font-size: 32px;
+        padding: 1px 0;
+        background-repeat: no-repeat;
+        background-image: url(//gtranslate.net/flags/32.png);
+      }
+
+      a.gflag img {
+        border: 0;
+      }
+
+      a.gflag:hover {
+        background-image: url(//gtranslate.net/flags/32a.png);
+      }
+
+      #goog-gt-tt {
+        display: none !important;
+      }
+
+      .goog-te-banner-frame {
+        display: none !important;
+      }
+
+      .goog-te-menu-value:hover {
+        text-decoration: none !important;
+      }
+
+      body {
+        top: 0 !important;
+      }
+
+      #google_translate_element2 {
+        display: none !important;
+      }

@@ -1,0 +1,58 @@
+<ion-content class="home_productHome" no-padding>
+  <app-header *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-header>  
+  <div>
+    <div style="width:100%; padding:5vh" *ngFor="let product of listOfProducts; let i=index">
+        <ion-item style="margin-bottom: 20px;" text-center no-padding no-lines><span class="punchingLabel">{{product.title}}</span></ion-item>
+        <ion-grid style="width: 100%;">
+   
+          <ion-row *ngIf="i%2 == 0">            
+            <ion-col style="height:50vh; width: 60%;">
+              <ion-slides autoplay="3000" slidesPerView="1" loop="true" pager="true" paginationType="bullets"
+              style="width: 100%; height:100%;" *ngIf="product.status">
+              <ion-slide  style="width: 100%; height:100%;" *ngFor="let media of product.mediaList">
+                <img loading="lazy" *ngIf="!global.isVideoCheck(media)" [src]="media"
+                  style="width: 100%; height:100%; object-fit: cover;" />
+                <div style="width: 100%; height:100%;" *ngIf="global.isVideoCheck(media)" class="video-container">
+                  <video style="width: 100%; height: auto" autoplay oncanplay="this.muted=true" loop>
+                    <source [src]="media" type="video/mp4" />
+                  </video>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            </ion-col>
+            <ion-col style="width: 40%;">
+              <span class="detailContent">{{product.detail}}</span>
+            </ion-col>           
+          </ion-row>
+
+
+          <ion-row *ngIf="i%2 != 0">            
+            <ion-col style="width: 40%;">
+              <span class="detailContent">{{product.detail}}</span>
+            </ion-col>
+            <ion-col style="height:50vh; width: 60%;">
+              <ion-slides autoplay="3000" slidesPerView="1"  loop="true" pager="true" paginationType="bullets"
+              style="width: 100%; height:100%;" *ngIf="product.status">
+              <ion-slide  style="width: 100%; height:100%;" *ngFor="let media of product.mediaList">
+                <img loading="lazy" *ngIf="!global.isVideoCheck(media)" [src]="media"
+                  style="width: 100%; height:100%; object-fit: cover;" />
+                <div style="width: 100%; height:100%;" *ngIf="global.isVideoCheck(media)" class="video-container">
+                  <video style="width: 100%; height: auto" autoplay oncanplay="this.muted=true" loop>
+                    <source [src]="media" type="video/mp4" />
+                  </video>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+  </div>
+
+  <ion-fab (click)="global.openContactUsPopOver()" bottom right>
+    <div style="width:80px; height: 80px; border-radius: 50px; border: solid 1px lightblue;">
+      <img style="width:100%; height: 100%; object-fit: cover; border-radius: 50px" src="imgs/contactGif.gif"/>
+    </div>
+  </ion-fab>
+  <app-footer *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-footer>
+</ion-content>

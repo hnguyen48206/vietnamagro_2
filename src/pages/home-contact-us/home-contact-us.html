@@ -1,0 +1,53 @@
+<ion-content no-padding>
+  <app-header *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-header>
+  <div id="contactWrapper" style="width: 100%; margin:auto">
+    <ion-grid id="contactForm" no-padding>
+      <ion-row style="height: 100%;" justify-content-center align-items-center>
+        <ion-card style="border-radius: 15px; padding:5vh">
+          <ion-item style="margin-bottom: 10px;" no-lines>
+            <span item-start class="punchingLabel">
+              Liên Hệ Với Chúng Tôi
+            </span>
+            <img item-end loading="lazy" src="imgs/send.png" style="float:right; width:40px" />
+          </ion-item>
+         
+          <ion-item no-lines>
+            <ion-label fixed>Họ Tên <span class="requiredInput">(*)</span></ion-label>
+            <ion-textarea [(ngModel)]="contactUsInput.name" maxlength="40" placeholder="nhập họ tên..."></ion-textarea>
+          </ion-item>
+          <ion-item no-lines>
+            <ion-label fixed>Email <span class="requiredInput">(*)</span></ion-label>
+            <ion-textarea [(ngModel)]="contactUsInput.email" maxlength="40" placeholder="nhập email...">
+            </ion-textarea>
+          </ion-item>
+         
+          <input style="border: 1px solid lightblue;
+          border-radius: 15px;
+          padding-top: 5px;
+          padding-bottom: 5px;" type="tel" id="phone" name="phone">
+
+          <ion-item style="margin-top:10px" no-lines>
+            <ion-label fixed>Nội dung <span class="requiredInput">(*)</span></ion-label>
+            <ion-textarea [(ngModel)]="contactUsInput.content[0]" rows="5" #contactUsContentInput id="contactUsContentInput"
+              (keyup)="textAreaResize()" placeholder="nhập nội dung..."></ion-textarea>
+          </ion-item>
+
+          <div (click)="validateInput()" style="width:200px; height: 50px; display: table;
+          margin: 0 auto;background-color: transparent; text-align: center;">
+          <div style="display:table-cell; vertical-align: middle; width:75%; background-color: tomato;">
+          <span style="font-weight: bold; color: white;">Gửi Thông Tin</span>
+          </div>
+          <div style="display:table-cell; width:25%; background-color: #f3dd1d; vertical-align: middle;">
+            <ion-icon style="font-size: 2em; font-weight: bold; color: white;" name="ios-arrow-forward"></ion-icon>
+          </div>
+          </div>
+
+        </ion-card>
+       
+
+      </ion-row>
+    </ion-grid>
+
+  </div>
+  <app-footer *ngIf="currentSiteCatergory!=null" [currentSite]="this.currentSiteCatergory"></app-footer>
+</ion-content>

@@ -1,0 +1,16 @@
+<ion-menu [content]="mycontent" *ngIf="global.isLogin">
+    <ion-content>
+      <ion-list class="listOfMenuItems">
+        <ion-item no-lines (click)="openPage('home')">
+            <img loading="lazy" item-start src="imgs/home.png"/>
+            Trang chủ
+        </ion-item>
+        <ion-item *ngFor="let item of global.listOfSettings" no-lines (click)="openPage(item.id)">
+            <img loading="lazy" item-start [src]="item.icon"/>
+            <h6>{{item.name}}</h6>
+        </ion-item>         
+    </ion-list>
+    </ion-content>
+  </ion-menu>
+  
+  <ion-nav #mycontent [root]="rootPage"></ion-nav>

@@ -1,0 +1,61 @@
+page-admin {
+    
+    .settingsHome{
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 70vw;
+        transform: translate(-50%, -50%);
+    }
+    .settingsHome ion-grid ion-row ion-col img{
+        width:50px;
+    }
+    .settingsHome ion-grid ion-row ion-col h4{
+        color:whitesmoke;
+        font-weight: bold;
+    }
+   
+    .loginForm{
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 30vw;
+        transform: translate(-50%, -50%);
+    }
+    .loginForm ion-item{
+        border-radius:10px;
+        padding: 30px;;
+    }
+}
+.sidemenuIcon{
+    width:30px; height:auto
+}
+.adminBG{
+    background-size: cover;
+background-position: center;
+background-image: url('../imgs/bg.png');
+}
+
+.dataGrid{
+    width: 80vw;
+    border-radius: 15px;
+    background:white;
+    padding:30px;
+    overflow:auto;
+}
+.noLoginMessage{
+    margin: auto;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 30vw;
+    transform: translate(-50%, -50%);
+}
+.noLoginMessage ion-item{
+    border-radius: 15px;
+    padding:15px;
+}
+
+

@@ -1,0 +1,50 @@
+page-admin-supplier-detail {
+    .scroll-content{
+        display: flex;
+        justify-content: center;  
+    }
+    
+    .editItemWrapper{
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 75vw;
+        max-height: 85vh;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        background:white;
+        padding:30px;
+        overflow:auto;
+    }
+
+    .mediaToReorderWrapper{
+        margin: auto;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 50vw;
+        max-height: 85vh;
+        transform: translate(-50%, -50%);
+        border-radius: 15px;
+        background:white;
+        padding:30px;
+        overflow:auto;
+    }
+    .listOfMediaToReorder img{
+        height:50px; width:auto; border-radius: 7px;
+    }
+    .listOfMediaToReorder video{
+        height:50px; width:auto; border-radius: 7px;
+    }
+
+    .thumbnail:focus {      
+        position:relative;
+        top:-25px;
+        left:40%;
+        width:35%;
+        height:auto;
+        display:block;
+        z-index:999;
+    }
+}

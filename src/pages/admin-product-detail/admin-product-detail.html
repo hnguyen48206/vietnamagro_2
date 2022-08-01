@@ -1,0 +1,89 @@
+  <ion-header *ngIf="global.isLogin" no-border>
+    <ion-item no-lines>
+      <img loading="lazy" class="sidemenuIcon" item-start src="imgs/back.png" (click)="goBack()" />
+      Chỉnh sửa sản phẩm
+      </ion-item>
+  </ion-header>
+
+<ion-content padding class="adminBG">
+  <div *ngIf="!global.isLogin" class="noLoginMessage">
+    <ion-item (click)="goHome()" no-lines text-center text-wrap>
+      <img loading="lazy" style='vertical-align:middle; width:30px; margin-right: 15px' src='imgs/home.png'>
+      <div style='vertical-align:middle; display:inline;'>
+        Bạn chưa đăng nhập hệ thống. Vui lòng đăng nhập trước khi sử dụng tính năng này.</div>
+    </ion-item>
+  </div>
+
+  <div *ngIf="global.isLogin && !editMedia" class="editItemWrapper">
+    <img loading="lazy" (click)="validateInput()" src="imgs/send.png" style="float:right; width:40px" />
+    <ion-item>
+      <ion-label fixed>Tiêu đề <span class="requiredInput">(*)</span></ion-label>
+      <ion-textarea [(ngModel)]="itemInput.title" maxlength="60" placeholder="nhập tiêu đề..."></ion-textarea>
+    </ion-item>
+    <ion-item>
+      <ion-label fixed>Mô tả ngắn</ion-label>
+      <ion-textarea [(ngModel)]="itemInput.shortDescription" maxlength="120" placeholder="nhập mô tả...">
+      </ion-textarea>
+    </ion-item>
+    <ion-item  *ngIf="listOfItemGroups.length>0">
+      <ion-label>Nhóm sản phẩm <span class="requiredInput">(*)</span></ion-label>
+      <ion-select [(ngModel)]="itemInput.groupName">
+        <ion-option *ngFor="let group of listOfItemGroups" [value]="group.groupName">{{group.groupName}}</ion-option>       
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-label style="color:#999">Trang thái xuất bản</ion-label>
+      <ion-toggle [(ngModel)]="itemInput.status"></ion-toggle>
+    </ion-item>
+    <ion-item *ngIf="itemInput.mediaList.length!=0" (click)="openListOfCurrentMedia()">
+      <img loading="lazy" src="imgs/media.png" style="width: 40px;" item-start /><span>Các file media đã có:
+        {{itemInput.mediaList.length}}</span>
+      <ion-icon item-end style="font-weight: 1.5em;" name="ios-arrow-forward"></ion-icon>
+    </ion-item>
+    <ion-item>
+      <ion-label color="primary" stacked>Chọn thêm File Media</ion-label>
+      <ion-input accept="video/*,image/*" id="fileInputId" type="file" (change)="fileChangeListener($event)" multiple>
+      </ion-input>
+    </ion-item>
+    <ion-grid style="padding:10px" *ngIf="mediaListToSend.length!=0">
+      <ion-row *ngFor="let file of mediaListToSend ; let i = index">
+        <ion-col col-1>
+          <ion-icon (click)="removeFileFromList(file.name)" style="font-size: 1.5rem; color: tomato; margin-right:10px"
+            name="md-close">
+          </ion-icon>
+        </ion-col>
+        <ion-col>{{file.name}}</ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-item>
+      <ion-label fixed>Nội dung <span class="requiredInput">(*)</span></ion-label>
+      <ion-textarea [(ngModel)]="itemInput.detail" rows="5" #aboutusContentInput id="itemContentInput"
+        (keyup)="textAreaResize()" placeholder="nhập nội dung..."></ion-textarea>
+    </ion-item>
+  </div>
+
+  <div *ngIf="global.isLogin && editMedia" class="mediaToReorderWrapper">
+    <ion-item style="margin-bottom: 15px">
+      <button (click)="deleteModification(null)" ion-button color="danger" item-start>Xoá Tất Cả</button>
+      <button (click)="confirmMediaModification()" color="secondary" ion-button item-start>Xác Nhận</button>
+      <ion-icon (click)="refreshModification()" item-start style="font-size: 3rem; color: rgb(35, 149, 255);"
+        name="md-refresh"></ion-icon>
+
+      <img loading="lazy" (click)="closeListOfCurrentMedia()" src="imgs/close.png" style="width: 30px;" item-end />
+    </ion-item>
+    <ion-list no-lines reorder="true" (ionItemReorder)="reorderItems($event);">
+      <ion-item class="listOfMediaToReorder" *ngFor="let item of modificationMediaList">
+        <ion-icon (click)="deleteModification(item)" style="font-size: 2rem; color: tomato; margin-right:5%"
+          name="md-close">
+        </ion-icon>
+        <img loading="lazy" *ngIf="!global.isVideoCheck(item)" tabindex="0" class="thumbnail"
+          [src]="sanitizer.bypassSecurityTrustResourceUrl(item)" />
+        <video *ngIf="global.isVideoCheck(item)" class="thumbnail" controls preload="none">
+          <source [src]="sanitizer.bypassSecurityTrustResourceUrl(item)" type="video/mp4">
+        </video>
+      </ion-item>
+    </ion-list>
+  </div>
+
+</ion-content>
+

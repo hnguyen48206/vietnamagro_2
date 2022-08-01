@@ -1,0 +1,48 @@
+<ion-content no-padding class="homeBG">
+  <div class="logoHeader">
+    <img loading="lazy" src="imgs/sitelogo.png" />
+    <!-- GTranslate: https://gtranslate.io/ -->
+    <div style="float: right; margin-right:2%">
+      <a href="#" onclick="doGTranslate('vi|zh-CN');return false;" title="Chinese (Simplified)" class="gflag nturl" style="background-position:-300px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Chinese (Simplified)" /></a><a href="#" onclick="doGTranslate('vi|en');return false;" title="English" class="gflag nturl" style="background-position:-0px -0px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="English" /></a><a href="#" onclick="doGTranslate('vi|es');return false;" title="Spanish" class="gflag nturl" style="background-position:-600px -200px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Spanish" /></a><a href="#" onclick="doGTranslate('vi|vi');return false;" title="Vietnamese" class="gflag nturl" style="background-position:-200px -400px;"><img src="//gtranslate.net/flags/blank.png" height="32" width="32" alt="Vietnamese" /></a>
+      </div>
+    <div id="google_translate_element2"></div>
+    </div>
+  <div class="catergoriesCards">
+    <ion-grid no-padding>
+      <ion-row>
+        <ion-col (click)="goToSite('rice')" class="cardItem" align-self-center>
+          <div class="card__background"
+            style="background-image: url(https://wallpaperboat.com/wp-content/uploads/2019/11/rice-03.jpg)"></div>
+          <div class="card__content">
+            <h3 class="card__heading">Gạo</h3>
+          </div>
+        </ion-col>
+        <ion-col (click)="goToSite('coconut')" class="cardItem" align-self-center>
+          <div class="card__background"
+            style="background-image: url(https://fsb.zobj.net/crop.php?r=aU3ZycspSgrwKk0NIQpaWd2A1bRdm-V3LRPAIJinkerLwDcXnqqDcSOmJF0YZSm-5Dvz7O8ade_DOTMIFHiRlPTBZJyUYgbAj_3M6MDMEp0L3ADSqhIgbVfZDdsDwJQxMGyJI-Y0lbK6iPNI)">
+          </div>
+          <div class="card__content">
+            <h3 class="card__heading">Dừa</h3>
+          </div>
+        </ion-col>
+        <ion-col (click)="goToSite('services')" class="cardItem" align-self-center>
+          <div class="card__background"
+            style="background-image: url(https://exponentialfreight.co.za/images/slider/slide-3.jpg)"></div>
+          <div class="card__content">
+            <h3 class="card__heading">Dịch Vụ</h3>
+          </div>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+  <ion-item no-lines text-center text-wrap class="creditline">
+    Chào mừng đến với VietNam Agro
+    <br>
+    Copyright © 2020 Vietnamagro. All rights reserved. Design by HoangN
+  </ion-item>
+</ion-content>
+
+
+<!-- <ion-footer>
+  <button ion-button (click)=goToAdmin()>Admin</button>
+</ion-footer> -->

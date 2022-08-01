@@ -1,0 +1,26 @@
+<div class="headerBar">
+  <div style="height: 10%;"></div>
+  <div (click)="goHome()" id="siteLogo"></div>
+  <div (click)="goHome()" id="siteName"></div>
+  <nav id="navigationBar" aria-label="Main Navigation">
+    <ul>
+      <li><a href="#" (click)="menuClick('home')">Trang Chủ</a></li>
+      <li *ngIf="listOfProductGroups!=null && listOfProductGroups.isRequired" class="dropdown">
+        <button type="button" class="dropdown__title" aria-expanded="false" aria-controls="sweets-dropdown">
+          Sản Phẩm
+        </button>
+        <ul class="dropdown__menu" id="sweets-dropdown">
+          <li *ngFor="let productGroup of listOfProductGroupsToDisplay">
+            <a (click)="menuClick('productGroup'+ productGroup.groupName)" href="#">{{productGroup.groupName}}</a>
+          </li>
+        </ul>
+      </li>
+      <li *ngIf="listOfProductGroups!=null && !listOfProductGroups.isRequired"><a href="#"
+          (click)="menuClick('products')">Sản Phẩm</a></li>
+      <li><a href="#" (click)="menuClick('news')">Tin Tức</a></li>
+      <li><a href="#" (click)="menuClick('process')">Quy Trình</a></li>
+      <li><a href="#" (click)="menuClick('aboutus')">Giới Thiệu</a></li>
+      <li><a href="#" (click)="menuClick('contact')">Liên Hệ</a></li>
+    </ul>
+  </nav>
+</div>
