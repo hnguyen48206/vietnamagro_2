@@ -25731,7 +25731,7 @@ ion-navbar.toolbar {
 }
 
 /* Responsive columns */
-@media screen and (max-width: 600px) {
+@media screen and (max-width: 800px) {
   .custom_column {
     width: 100%;
     display: block;
@@ -26923,6 +26923,49 @@ page-home-product-detail ion-slide {
   height: 100% !important;
 }
 
+page-home-product-home .productCard {
+  -webkit-transition: -webkit-transform .2s;
+  transition: -webkit-transform .2s;
+  transition: transform .2s;
+  transition: transform .2s, -webkit-transform .2s;
+  /* Animation */
+}
+
+page-home-product-home .productCard:hover {
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
+  /* (150% zoom - Note: if the zoom is too large, it will go outside of the viewport) */
+}
+
+@media only screen and (max-width: 800px) {
+  page-home-product-home .productCardGroup {
+    display: -webkit-box !important;
+    display: -webkit-flex !important;
+    display: -ms-flexbox !important;
+    display: flex !important;
+    -webkit-box-orient: vertical !important;
+    -webkit-box-direction: normal !important;
+    -webkit-flex-direction: column !important;
+    -ms-flex-direction: column !important;
+    flex-direction: column !important;
+  }
+  page-home-product-home .productCard {
+    width: 100% !important;
+  }
+  page-home-product-home .punchingSubLabel {
+    font-size: 5vw !important;
+  }
+  page-home-product-home figure figcaption h3 {
+    font-size: 4vw !important;
+  }
+  page-home-product-home .newsSubTitleWarpper {
+    font-size: 3.5vw !important;
+  }
+  page-home-product-home .newsContentWarpper {
+    font-size: 3vw !important;
+  }
+}
+
 page-home-product-home .processSlide {
   height: 60vh;
   width: 100%;
@@ -27368,10 +27411,49 @@ page-home-product-process .processContent:after {
   vertical-align: -0.4em;
 }
 
+page-news-detail-popover #closeBtn {
+  padding: 20px;
+  float: right;
+  margin: 10px;
+  font-size: 6vw;
+  display: block;
+}
+
 page-news-detail-popover ion-slide {
   width: 100% !important;
 }
 
 page-news-detail-popover .swiper-pagination-bullet-active {
   background: #ffff46;
+}
+
+@media only screen and (max-width: 800px) {
+  page-news-detail-popover .desktopGrid {
+    display: none;
+  }
+  page-news-detail-popover .mobileGrid {
+    display: block;
+    padding: 5vw;
+  }
+  page-news-detail-popover #newsTitle {
+    font-size: 5vw;
+  }
+  page-news-detail-popover #newsDescription {
+    font-size: 4vw;
+  }
+  page-news-detail-popover #newsDate {
+    font-size: 2vw;
+  }
+  page-news-detail-popover #newsDetail {
+    font-size: 3vw;
+  }
+}
+
+@media only screen and (min-width: 800px) {
+  page-news-detail-popover .desktopGrid {
+    display: block;
+  }
+  page-news-detail-popover .mobileGrid {
+    display: none;
+  }
 }

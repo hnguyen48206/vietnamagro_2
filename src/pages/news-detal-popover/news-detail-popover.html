@@ -1,10 +1,11 @@
 
 <ion-content no-padding>
   <div style="margin:auto">
+    <!-- <div (click)="closeNewsDetailDialog()" id="closeBtn">X</div> -->
     <button ion-button round style="padding:20px; float:right; margin:10px;" (click)="closeNewsDetailDialog()">X</button>
   </div>
     <div *ngIf="currentNewsPiece!=null">
-      <ion-grid>
+      <ion-grid class="desktopGrid">
         <ion-row>
           <ion-col style="width:60%">
             <ion-slides autoplay="3000" loop="true" pager="true" paginationType="bullets"
@@ -27,6 +28,35 @@
             <p style="margin-top: 20px;">{{currentNewsPiece.detail}}</p>
           </ion-col>
         </ion-row>
+      </ion-grid>
+
+
+      <ion-grid class="mobileGrid">
+          <ion-col style="width:60%">
+            <ion-row>
+              <ion-slides autoplay="3000" loop="true" pager="true" paginationType="bullets"
+              style="width: 100%; height:70vh">
+              <ion-slide *ngFor="let media of currentNewsPiece.mediaList">
+                <img loading="lazy" *ngIf="!global.isVideoCheck(media)" [src]="media"
+                  style="width: 100%; height:100%; object-fit: cover;" />
+                <div *ngIf="global.isVideoCheck(media)" class="video-container">
+                  <video oncanplay="this.muted=true" autoplay loop>
+                    <source [src]="media" type="video/mp4" />
+                  </video>
+                </div>
+              </ion-slide>
+            </ion-slides>
+            </ion-row>
+            <ion-row>
+              <ion-col style="width:40%">
+                <h2 id="newsTitle" style="font-weight: bold;">{{currentNewsPiece.title}}</h2>
+                <h4 id="newsDescription" style="font-style: italic;">{{currentNewsPiece.shortDescription}}</h4>
+                <p id="newsDate" style="color: tomato;"><small>Ngày đăng: {{currentNewsPiece.lastUpdated.date}}</small></p>
+                <p id="newsDetail" style="margin-top: 20px;">{{currentNewsPiece.detail}}</p>
+              </ion-col>
+            </ion-row>         
+          </ion-col>
+    
       </ion-grid>
     </div>
 </ion-content>

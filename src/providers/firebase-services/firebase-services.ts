@@ -126,7 +126,7 @@ export class FirebaseServicesProvider {
         });
       }).then(function () {
         console.log("Transaction successfully committed!");
-        resolve()
+        resolve(true)
       }).catch(function (error) {
         console.log("Transaction failed: ", error);
         reject(error)
@@ -143,7 +143,7 @@ export class FirebaseServicesProvider {
           mediaList: arr})
             .then(() => {
               console.log('done');
-              resolve();
+              resolve(true);
             })
             .catch(function (error) {
               console.error('Error writing document: ', error);

@@ -28,9 +28,10 @@
     <div *ngIf="listOfProductGroups!=null && listOfProductGroups.isRequired" class="productsWrapper">
       <ion-item style="width: 100%;" no-lines text-center no-padding text-wrap><span class="punchingLabel">SẢN
           PHẨM</span></ion-item>
-      <div style="display:inline;
+      <div class="productCardGroup" style="display:inline;
       text-align:center;">
-        <div (click)="menuClick('productGroup'+ productGroup.groupName)" *ngFor="let productGroup of listOfProductGroupsToDisplay"
+      
+        <div class="productCard" (click)="menuClick('productGroup'+ productGroup.groupName)" *ngFor="let productGroup of listOfProductGroupsToDisplay"
           [ngStyle]="{ 'background-image': 'url(' + productGroup.groupAvatar + ')'}" style="
           background-size: cover;
           background-position: center;

@@ -151,7 +151,7 @@ var FirebaseServicesProvider = /** @class */ (function () {
                 });
             }).then(function () {
                 console.log("Transaction successfully committed!");
-                resolve();
+                resolve(true);
             }).catch(function (error) {
                 console.log("Transaction failed: ", error);
                 reject(error);
@@ -169,7 +169,7 @@ var FirebaseServicesProvider = /** @class */ (function () {
             })
                 .then(function () {
                 console.log('done');
-                resolve();
+                resolve(true);
             })
                 .catch(function (error) {
                 console.error('Error writing document: ', error);
@@ -199,10 +199,10 @@ var FirebaseServicesProvider = /** @class */ (function () {
     };
     FirebaseServicesProvider = __decorate([
         Object(__WEBPACK_IMPORTED_MODULE_1__angular_core__["Injectable"])(),
-        __metadata("design:paramtypes", [__WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */], __WEBPACK_IMPORTED_MODULE_6__globalhero_globalhero__["a" /* GlobalheroProvider */], __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */],
-            __WEBPACK_IMPORTED_MODULE_4__angular_fire_storage__["a" /* AngularFireStorage */], __WEBPACK_IMPORTED_MODULE_2__angular_fire_firestore__["a" /* AngularFirestore */], __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */]])
+        __metadata("design:paramtypes", [typeof (_a = typeof __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_7__ionic_storage__["b" /* Storage */]) === "function" && _a || Object, typeof (_b = typeof __WEBPACK_IMPORTED_MODULE_6__globalhero_globalhero__["a" /* GlobalheroProvider */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_6__globalhero_globalhero__["a" /* GlobalheroProvider */]) === "function" && _b || Object, typeof (_c = typeof __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_0__angular_common_http__["a" /* HttpClient */]) === "function" && _c || Object, typeof (_d = typeof __WEBPACK_IMPORTED_MODULE_4__angular_fire_storage__["a" /* AngularFireStorage */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_4__angular_fire_storage__["a" /* AngularFireStorage */]) === "function" && _d || Object, typeof (_e = typeof __WEBPACK_IMPORTED_MODULE_2__angular_fire_firestore__["a" /* AngularFirestore */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_2__angular_fire_firestore__["a" /* AngularFirestore */]) === "function" && _e || Object, typeof (_f = typeof __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */] !== "undefined" && __WEBPACK_IMPORTED_MODULE_3__angular_fire_auth__["a" /* AngularFireAuth */]) === "function" && _f || Object])
     ], FirebaseServicesProvider);
     return FirebaseServicesProvider;
+    var _a, _b, _c, _d, _e, _f;
 }());
 
 var firebaseConfig = {
@@ -304,7 +304,7 @@ var map = {
 		3
 	],
 	"../pages/home-product-home/home-product-home.module": [
-		866,
+		864,
 		2
 	],
 	"../pages/home-product-news-list/home-product-news-list.module": [
@@ -312,11 +312,11 @@ var map = {
 		0
 	],
 	"../pages/home-product-process/home-product-process.module": [
-		867,
+		866,
 		1
 	],
 	"../pages/home/home.module": [
-		864,
+		867,
 		7
 	],
 	"../pages/news-detal-popover/news-detail-popover.module": [
@@ -1979,10 +1979,10 @@ var AppModule = /** @class */ (function () {
                         { loadChildren: '../pages/home-about-us/home-about-us.module#HomeAboutUsPageModule', name: 'HomeAboutUsPage', segment: 'home/:site/aboutus', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-contact-us/home-contact-us.module#HomeContactUsPageModule', name: 'HomeContactUsPage', segment: 'home/:site/contact', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-product-detail/home-product-detail.module#HomeProductDetailPageModule', name: 'HomeProductDetailPage', segment: 'home/:site/:groupName', priority: 'low', defaultHistory: ['HomePage'] },
-                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
-                        { loadChildren: '../pages/home-product-news-list/home-product-news-list.module#HomeProductNewsListPageModule', name: 'HomeProductNewsListPage', segment: 'home/:site/news', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-product-home/home-product-home.module#HomeProductHomePageModule', name: 'HomeProductHomePage', segment: 'home/:site', priority: 'low', defaultHistory: ['HomePage'] },
+                        { loadChildren: '../pages/home-product-news-list/home-product-news-list.module#HomeProductNewsListPageModule', name: 'HomeProductNewsListPage', segment: 'home/:site/news', priority: 'low', defaultHistory: ['HomePage'] },
                         { loadChildren: '../pages/home-product-process/home-product-process.module#HomeProductProcessPageModule', name: 'HomeProductProcessPage', segment: 'home/:site/process', priority: 'low', defaultHistory: ['HomePage'] },
+                        { loadChildren: '../pages/home/home.module#HomePageModule', name: 'HomePage', segment: 'home', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/news-detal-popover/news-detail-popover.module#NewsDetailPopoverPageModule', name: 'NewsDetailPopoverPage', segment: 'news-detail-popover', priority: 'low', defaultHistory: [] },
                         { loadChildren: '../pages/admin-aboutus/admin-aboutus.module#AdminAboutusPageModule', name: 'AdminAboutusPage', segment: 'admin/aboutus', priority: 'low', defaultHistory: ['AdminPage'] },
                         { loadChildren: '../pages/admin-products/admin-products.module#AdminProductsPageModule', name: 'AdminProductsPage', segment: 'admin/products', priority: 'low', defaultHistory: ['AdminPage'] }

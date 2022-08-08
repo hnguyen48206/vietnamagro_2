@@ -1,8 +1,41 @@
 page-news-detail-popover {
+    #closeBtn{
+        padding:20px; float:right; margin:10px; font-size: 6vw; 
+        display: block;
+    }
     ion-slide {
         width: 100% !important;
     }
     .swiper-pagination-bullet-active {
         background: rgb(255, 255, 70);
+    }
+    @media only screen and (max-width: 800px) {
+        .desktopGrid{
+            display: none;
+        }
+        .mobileGrid{
+            display: block;
+            padding: 5vw
+        }
+        #newsTitle{
+            font-size: 5vw;
+        }
+        #newsDescription{
+            font-size: 4vw;
+        }
+        #newsDate{
+            font-size: 2vw;
+        }
+        #newsDetail{
+            font-size: 3vw;
+        }
+    }
+    @media only screen and (min-width: 800px) {
+        .desktopGrid{
+            display: block;
+        }
+        .mobileGrid{
+            display: none;
+        }
     }
 }
