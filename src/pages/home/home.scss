@@ -33,6 +33,21 @@ page-home {
       .logoHeader img{
           height:100%
       }
+      @media only screen and (max-width: 800px) {
+        .logoHeader img{
+          height: 80%;
+        }
+       #rowOfCards{
+        flex-direction: column;
+       }
+       .cardItem {
+        border-radius: 15px;
+        height:100%; width:100%; margin:2%
+    }
+    .card__heading{     
+      font-size: 5vw !important;      
+    }
+      }
       .catergoriesCards{
           margin-left:15%;margin-right:15%;
           height:65%

@@ -26672,6 +26672,28 @@ page-home .logoHeader img {
   height: 100%;
 }
 
+@media only screen and (max-width: 800px) {
+  page-home .logoHeader img {
+    height: 80%;
+  }
+  page-home #rowOfCards {
+    -webkit-box-orient: vertical;
+    -webkit-box-direction: normal;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+  }
+  page-home .cardItem {
+    border-radius: 15px;
+    height: 100%;
+    width: 100%;
+    margin: 2%;
+  }
+  page-home .card__heading {
+    font-size: 5vw !important;
+  }
+}
+
 page-home .catergoriesCards {
   margin-left: 15%;
   margin-right: 15%;
