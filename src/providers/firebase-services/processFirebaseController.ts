@@ -46,7 +46,7 @@ export class processFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Cập nhật thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -65,7 +65,7 @@ export class processFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Đã xóa thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -152,7 +152,7 @@ export class processFirebaseController {
         });
       }).then(function () {
         console.log("Transaction successfully committed!");
-        resolve()
+        resolve(true)
       }).catch(function (error) {
         console.log("Transaction failed: ", error);
         reject(error)
@@ -168,7 +168,7 @@ export class processFirebaseController {
           mediaList: arr})
             .then(() => {
               console.log('done');
-              resolve();
+              resolve(true);
             })
             .catch(function (error) {
               console.error('Error writing document: ', error);

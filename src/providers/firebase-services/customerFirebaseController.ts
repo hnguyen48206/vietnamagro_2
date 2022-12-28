@@ -78,7 +78,7 @@ export class customerFirebaseController {
                 console.log(err)
               })
           }
-          resolve()
+          resolve(true)
         }
       ).catch(
         err=>{ reject()}
@@ -99,7 +99,7 @@ export class customerFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Cập nhật thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -127,7 +127,7 @@ export class customerFirebaseController {
         });
       }).then(function () {
         console.log("Transaction successfully committed!");
-        resolve()
+        resolve(true)
       }).catch(function (error) {
         console.log("Transaction failed: ", error);
         reject(error)
@@ -145,7 +145,7 @@ export class customerFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Xóa thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);

@@ -47,7 +47,7 @@ export class newsFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Cập nhật thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -66,7 +66,7 @@ export class newsFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Đã xóa thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -153,7 +153,7 @@ export class newsFirebaseController {
         });
       }).then(function () {
         console.log("Transaction successfully committed!");
-        resolve()
+        resolve(true)
       }).catch(function (error) {
         console.log("Transaction failed: ", error);
         reject(error)
@@ -169,7 +169,7 @@ export class newsFirebaseController {
           mediaList: arr})
             .then(() => {
               console.log('done');
-              resolve();
+              resolve(true);
             })
             .catch(function (error) {
               console.error('Error writing document: ', error);

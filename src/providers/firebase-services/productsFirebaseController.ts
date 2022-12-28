@@ -49,7 +49,7 @@ export class productsFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Cập nhật thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -68,7 +68,7 @@ export class productsFirebaseController {
         .then(() => {
           console.log('done');
           self.global.presentToast('Đã xóa thành công!')
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -159,7 +159,7 @@ export class productsFirebaseController {
         });
       }).then(function () {
         console.log("Transaction successfully committed!");
-        resolve()
+        resolve(true)
       }).catch(function (error) {
         console.log("Transaction failed: ", error);
         reject(error)
@@ -176,7 +176,7 @@ export class productsFirebaseController {
         })
         .then(() => {
           console.log('done');
-          resolve();
+          resolve(true);
         })
         .catch(function (error) {
           console.error('Error writing document: ', error);
@@ -217,7 +217,7 @@ export class productsFirebaseController {
             });
           }).then(function () {
             console.log("Transaction successfully committed!");
-            resolve()
+            resolve(true)
           }).catch(function (error) {
             console.log("Transaction failed: ", error);
             reject(error)
@@ -270,7 +270,7 @@ export class productsFirebaseController {
                 }).catch(err => reject(err))
               }
               else {
-                resolve()
+                resolve(true)
               }
             }).catch(function (error) {
               console.log("Transaction failed: ", error);
@@ -311,7 +311,7 @@ export class productsFirebaseController {
             }).catch(err => reject(err))
           }
           else {
-            resolve()
+            resolve(true)
           }
         }).catch(function (error) {
           console.log("Transaction failed: ", error);

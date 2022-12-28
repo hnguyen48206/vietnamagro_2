@@ -76,7 +76,7 @@ export class aboutusFirebaseController {
             .then(() => {
               console.log('done');
               self.global.presentToast('Cập nhật thành công!')
-              resolve();
+              resolve(true);
             })
             .catch(function (error) {
               console.error('Error writing document: ', error);
